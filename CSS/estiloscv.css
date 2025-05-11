@@ -1,0 +1,865 @@
+/* ================== VARIABLES ================== */
+:root {
+    --primary-color: #3498db; /* Color principal (azul) usado para elementos destacados */
+    --primary-hover: #2980b9; /* Versión más oscura del color principal para efectos hover */
+    --text-light: #f5f6fa; /* Color claro para textos sobre fondos oscuros */
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra media para profundidad visual */
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1); /* Transición suave para animaciones */
+    --border-radius: 12px; /* Radio de borde estándar para redondear esquinas */
+    --accent-color: #d32e5e; /* Color de acento (rojo oscuro) para resaltar elementos */
+}
+
+/* ================== ESTILOS GENERALES ================== */
+/* Estilos generales */
+html {
+    scroll-behavior: smooth; /* Desplazamiento suave al hacer scroll */
+}
+
+body {
+    display: flex; /* Establece el contenedor como flexible */
+    flex-direction: column; /* Organiza los elementos en columna */
+    min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la ventana */
+    font-family: 'Poppins', Arial, sans-serif; /* Define la tipografía principal con alternativas */
+    background: #f4f4f4; /* Establece un fondo gris claro */
+    color: #333; /* Define el color de texto principal como gris oscuro */
+    margin: 0; /* Elimina los márgenes predeterminados */
+    padding: 0; /* Elimina el relleno predeterminado */
+    transition: background-color 0.3s, color 0.3s; /* Agrega transición suave para cambios de color */
+}
+
+/* Encabezado */
+header {
+    background: #ffffff; /* Fondo blanco para el encabezado */
+    padding: 20px; /* Espacio interior de 20px en todos los lados */
+    text-align: center; /* Centra el contenido del encabezado */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Añade sombra para dar profundidad */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transición suave para modo oscuro */
+    position: relative; /* Permite posicionar elementos dentro del encabezado */
+}
+
+header img {
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    border: 3px solid var(--accent-color); /* Añade borde rojo oscuro usando la variable */
+}
+
+h1 {
+    font-size: 22px; /* Tamaño de fuente para el título principal */
+    color: var(--accent-color); /* Usa el color de acento para títulos */
+    margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+/* ================== BARRA DE NAVEGACIÓN MEJORADA ================== */
+nav {
+    background: linear-gradient(to right, #424242, #616161) !important; /* Gradiente de grises para la barra */
+    padding: 12px 0; /* Espaciado vertical */
+    position: static; /* Posición estática en el flujo del documento */
+    top: 0; /* Alineación superior */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidad */
+    transition: all 0.3s ease; /* Transición suave para cambios */
+}
+
+nav ul {
+    display: flex; /* Organiza los elementos en línea */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias líneas */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    list-style: none; /* Elimina los marcadores de lista */
+    margin: 0; /* Sin márgenes */
+    padding: 0; /* Sin relleno */
+    gap: 5px; /* Espaciado entre elementos */
+}
+
+nav li {
+    margin: 0; /* Sin márgenes */
+    padding: 0; /* Sin relleno */
+}
+
+nav a {
+    color: #fff; /* Texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    padding: 10px 15px; /* Espaciado interno */
+    font-weight: 500; /* Grosor de fuente medio */
+    border-radius: 5px; /* Bordes ligeramente redondeados */
+    transition: all 0.3s ease; /* Transición suave */
+    display: block; /* Hace que el enlace ocupe todo el espacio disponible */
+    font-size: 14px; /* Tamaño de texto */
+    letter-spacing: 0.5px; /* Espaciado entre letras */
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente al pasar el cursor */
+    color: #fff; /* Mantiene el texto blanco */
+    transform: translateY(-2px); /* Eleva ligeramente el elemento */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade sombra al pasar el cursor */
+    text-decoration: none; /* Mantiene sin subrayado */
+}
+
+/* ================== ESTILO MEJORADO PARA BOTÓN DE DESCARGAR CV ================== */
+/* Estilo específico para el botón de descarga de CV en la barra de navegación */
+.download-cv-btn {
+    background: linear-gradient(135deg, var(--accent-color), #b9253f); /* Gradiente usando el color de acento */
+    color: var(--text-light); /* Color de texto claro */
+    padding: 12px 20px; /* Espaciado interior más generoso */
+    border-radius: var(--border-radius); /* Bordes redondeados usando la variable definida */
+    box-shadow: var(--shadow-md); /* Sombra usando la variable definida */
+    font-weight: 600; /* Texto semi-negrita */
+    font-size: 15px; /* Tamaño de texto ligeramente mayor */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-flex; /* Permite alinear ícono y texto */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    gap: 10px; /* Espacio entre ícono y texto */
+    transition: var(--transition); /* Transición suave usando la variable definida */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 0.5px; /* Espaciado entre letras */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cursor de mano */
+    position: relative; /* Para efectos basados en posición */
+    overflow: hidden; /* Oculta elementos que desbordan */
+    margin: 10px auto; /* Centra horizontalmente con margen superior e inferior */
+    max-width: 250px; /* Ancho máximo */
+    text-align: center; /* Centra el texto */
+}
+
+/* Efecto hover para el botón */
+.download-cv-btn:hover {
+    background: linear-gradient(135deg, #e44d6e, var(--accent-color)); /* Invierte el gradiente al pasar el cursor */
+    transform: translateY(-3px); /* Eleva ligeramente el botón */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+}
+
+/* Efecto de click para el botón */
+.download-cv-btn:active {
+    transform: translateY(1px); /* Efecto de presionado */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra reducida */
+}
+
+/* Estilo para el icono dentro del botón */
+.download-cv-btn i, 
+.download-cv-btn svg {
+    font-size: 18px; /* Tamaño del ícono */
+    margin-right: 6px; /* Espacio a la derecha del ícono */
+    transition: transform 0.3s ease; /* Transición solo para transformación */
+}
+
+/* Animación del icono al hacer hover */
+.download-cv-btn:hover i,
+.download-cv-btn:hover svg {
+    transform: translateY(2px); /* Movimiento descendente del ícono */
+}
+
+/* Efecto de brillo sutil */
+.download-cv-btn::before {
+    content: ''; /* Contenido vacío para el pseudo-elemento */
+    position: absolute; /* Posicionamiento absoluto */
+    top: -50%; /* Posición inicial fuera del botón */
+    left: -50%; /* Posición inicial fuera del botón */
+    width: 200%; /* Ancho que cubre todo el botón */
+    height: 200%; /* Altura que cubre todo el botón */
+    background: rgba(255, 255, 255, 0.1); /* Brillo blanco semi-transparente */
+    transform: rotate(45deg); /* Rotación para efecto diagonal */
+    transition: all 0.6s ease; /* Transición suave */
+    opacity: 0; /* Inicialmente invisible */
+}
+
+/* Activar efecto de brillo al pasar el cursor */
+.download-cv-btn:hover::before {
+    animation: shine 1.5s; /* Aplica la animación */
+}
+
+/* Animación de brillo */
+@keyframes shine {
+    0% {
+        left: -100%; /* Posición inicial fuera del botón */
+        opacity: 0.5; /* Semi-visible */
+    }
+    100% {
+        left: 100%; /* Posición final fuera del botón */
+        opacity: 0; /* Desaparece gradualmente */
+    }
+}
+
+/* Adaptación para modo oscuro */
+body.dark-mode .download-cv-btn {
+    background: linear-gradient(135deg, #e44d6e, #c42f50); /* Gradiente más brillante en modo oscuro */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2); /* Sombra adaptada */
+}
+
+body.dark-mode .download-cv-btn:hover {
+    background: linear-gradient(135deg, #f16d8a, #e44d6e); /* Gradiente hover más brillante */
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.15), 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra hover adaptada */
+}
+
+/* Contenedor para el botón de descarga */
+.nav-actions {
+    display: flex; /* Organiza elementos en línea */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    margin-top: 10px; /* Margen superior */
+}
+
+/* Modo oscuro (conservando contraste) */
+body.dark-mode nav {
+    background: linear-gradient(to right, #1a1a1a, #2c2c2c) !important; /* Gradiente más oscuro para modo nocturno */
+}
+
+body.dark-mode nav a {
+    color: #fff; /* Mantiene texto blanco en modo oscuro */
+}
+
+body.dark-mode nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo hover más sutil en modo oscuro */
+}
+
+body.dark-mode .download-btn {
+    background-color: #e44d6e; /* Color de botón más brillante en modo oscuro */
+}
+
+body.dark-mode .download-btn:hover {
+    background-color: #f16d8a; /* Color hover del botón en modo oscuro */
+}
+
+/* Secciones principales */
+section {
+    background: white; /* Fondo blanco */
+    margin: 20px auto; /* Margen vertical y centrado horizontal */
+    padding: 20px; /* Espaciado interno */
+    width: 80%; /* Ancho del 80% */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transición para modo oscuro */
+}
+
+section p {
+    font-size: 16px; /* Tamaño de texto */
+    line-height: 1.5; /* Espaciado entre líneas */
+}
+
+/* ================== ASIDES ================== */
+aside {
+    background: #f8f9fa; /* Fondo ligeramente más claro que las secciones */
+    margin: 20px auto; /* Margen vertical y centrado horizontal */
+    padding: 15px 20px; /* Espaciado interno */
+    width: 75%; /* Ancho del 75% (más estrecho que las secciones) */
+    border-radius: var(--border-radius); /* Bordes redondeados usando variable */
+    box-shadow: var(--shadow-md); /* Sombra usando variable */
+    border-left: 4px solid var(--primary-color); /* Borde izquierdo destacado */
+    position: relative; /* Para posicionamiento relativo */
+    transition: var(--transition); /* Transición suave */
+}
+
+aside h3 {
+    color: var(--primary-color); /* Color primario para títulos */
+    margin-top: 0; /* Sin margen superior */
+    font-size: 18px; /* Tamaño de texto más pequeño que en secciones */
+}
+
+aside p {
+    font-size: 15px; /* Tamaño de texto ligeramente menor */
+    line-height: 1.4; /* Espaciado entre líneas */
+    margin-bottom: 10px; /* Espacio inferior */
+}
+
+aside a {
+    color: var(--primary-hover); /* Color para enlaces */
+    text-decoration: none; /* Sin subrayado */
+    transition: color 0.3s ease; /* Transición suave */
+}
+
+aside a:hover {
+    text-decoration: underline; /* Subrayado al pasar el cursor */
+    color: #1a6ca8; /* Color más oscuro al pasar el cursor */
+}
+
+/* Para destacar información importante */
+aside.important {
+    border-left-color: #e74c3c; /* Borde rojo para notas importantes */
+    background-color: #fdecea; /* Fondo rojo muy claro */
+}
+
+aside.important h3 {
+    color: #e74c3c; /* Título en rojo */
+}
+
+/* Para notas o información adicional */
+aside.note {
+    border-left-color: #f39c12; /* Borde naranja para notas */
+    background-color: #fef5e7; /* Fondo naranja muy claro */
+}
+
+aside.note h3 {
+    color: #f39c12; /* Título en naranja */
+}
+
+/* Para consejos o tips */
+aside.tip {
+    border-left-color: #2ecc71; /* Borde verde para tips */
+    background-color: #eafaf1; /* Fondo verde muy claro */
+}
+
+aside.tip h3 {
+    color: #2ecc71; /* Título en verde */
+}
+
+/* Modo oscuro para los asides */
+body.dark-mode aside {
+    background: #292929; /* Fondo oscuro para asides en modo nocturno */
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1); /* Sombra invertida en modo oscuro */
+}
+
+body.dark-mode aside.important {
+    background-color: #3d2523; /* Fondo rojo oscuro en modo nocturno */
+}
+
+body.dark-mode aside.note {
+    background-color: #3d2f1b; /* Fondo naranja oscuro en modo nocturno */
+}
+
+body.dark-mode aside.tip {
+    background-color: #1d3328; /* Fondo verde oscuro en modo nocturno */
+}
+
+/* ================== PIE DE PÁGINA ================== */
+/* Asegurar que el footer siempre esté en la parte inferior */
+footer {
+    background: #333; /* Fondo gris oscuro */
+    color: #f5f6fa; /* Texto claro */
+    padding: 30px 0 0; /* Relleno superior, sin relleno inferior */
+    width: 100%; /* Ancho completo */
+    position: relative; /* Posicionamiento relativo */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* Sombra superior */
+    margin-top: auto; /* Empuja el footer al fondo de la página */
+}
+
+.footer-bottom {
+    text-align: center; /* Texto centrado */
+    padding: 20px 0; /* Espaciado vertical */
+    margin-top: 20px; /* Margen superior */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria superior */
+    font-size: 13px; /* Tamaño de texto pequeño */
+    color: #aaa; /* Color gris claro */
+    width: 100%; /* Ancho completo */
+    position: relative; /* Posicionamiento relativo */
+    bottom: 0; /* Alineado al fondo */
+}
+
+.footer-container {
+    display: flex; /* Organiza secciones en línea */
+    flex-wrap: wrap; /* Permite que se ajusten en varias líneas */
+    justify-content: space-between; /* Distribuye el espacio entre elementos */
+    max-width: 1200px; /* Ancho máximo */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 0 20px; /* Espaciado lateral */
+}
+
+.footer-section {
+    flex: 1; /* Distribuye el espacio proporcionalmente */
+    min-width: 200px; /* Ancho mínimo */
+    margin-bottom: 20px; /* Espacio inferior */
+    padding: 0 15px; /* Espaciado lateral */
+}
+
+.footer-section h4 {
+    color: var(--primary-color); /* Color principal para títulos */
+    font-size: 18px; /* Tamaño de texto */
+    margin-bottom: 15px; /* Espacio inferior */
+    position: relative; /* Para posicionar el decorador */
+    padding-bottom: 10px; /* Espacio para el decorador */
+}
+
+.footer-section h4::after {
+    content: ''; /* Contenido vacío para el pseudo-elemento */
+    position: absolute; /* Posicionamiento absoluto */
+    left: 0; /* Alineado a la izquierda */
+    bottom: 0; /* Alineado al fondo */
+    width: 50px; /* Ancho fijo */
+    height: 2px; /* Altura de la línea */
+    background: var(--primary-color); /* Usa el color principal */
+}
+
+.footer-section p {
+    margin-bottom: 10px; /* Espacio inferior */
+    line-height: 1.5; /* Espaciado entre líneas */
+    font-size: 14px; /* Tamaño de texto */
+}
+
+.footer-section ul {
+    list-style: none; /* Sin marcadores de lista */
+    padding: 0; /* Sin relleno */
+    margin: 0; /* Sin margen */
+}
+
+.footer-section ul li {
+    margin-bottom: 8px; /* Espacio entre elementos */
+}
+
+.footer-section ul li a {
+    color: #ccc; /* Color gris claro */
+    text-decoration: none; /* Sin subrayado */
+    transition: color 0.3s ease; /* Transición suave */
+    font-size: 14px; /* Tamaño de texto */
+}
+
+.footer-section ul li a:hover {
+    color: var(--primary-color); /* Color principal al pasar el cursor */
+    text-decoration: none; /* Mantiene sin subrayado */
+}
+
+/* Iconos de redes sociales */
+.social-icons {
+    display: flex; /* Organiza iconos en línea */
+    margin-top: 15px; /* Espacio superior */
+}
+
+.social-icons a {
+    display: flex; /* Para centrar el icono */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    width: 36px; /* Ancho fijo */
+    height: 36px; /* Altura fija (cuadrado) */
+    background: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+    border-radius: 50%; /* Forma circular */
+    margin-right: 10px; /* Espacio entre iconos */
+    transition: var(--transition); /* Transición suave */
+}
+
+.social-icons a:hover {
+    background: var(--primary-color); /* Fondo azul al pasar el cursor */
+    transform: translateY(-3px); /* Efecto de elevación */
+}
+
+.social-icons i {
+    color: #fff; /* Icono blanco */
+    font-size: 16px; /* Tamaño de icono */
+}
+
+/* Formulario de contacto/suscripción en footer */
+.footer-form {
+    display: flex; /* Organiza elementos en línea */
+    margin-top: 15px; /* Espacio superior */
+}
+
+.footer-form input {
+    flex: 1; /* Ocupa espacio disponible */
+    padding: 10px 15px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: var(--border-radius) 0 0 var(--border-radius); /* Bordes redondeados solo a la izquierda */
+    font-size: 14px; /* Tamaño de texto */
+    outline: none; /* Sin contorno al enfocar */
+}
+
+.footer-form button {
+    background: var(--primary-color); /* Color principal */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 0 15px; /* Espaciado horizontal */
+    border-radius: 0 var(--border-radius) var(--border-radius) 0; /* Bordes redondeados solo a la derecha */
+    cursor: pointer; /* Cursor de mano */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+.footer-form button:hover {
+    background: var(--primary-hover); /* Color oscuro al pasar el cursor */
+}
+
+/* Copyright */
+.footer-bottom {
+    text-align: center; /* Texto centrado */
+    padding-top: 20px; /* Espaciado superior */
+    margin-top: 20px; /* Margen superior */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria */
+    font-size: 13px; /* Tamaño de texto pequeño */
+    color: #aaa; /* Color gris claro */
+}
+
+/* Modo oscuro para footer */
+body.dark-mode footer {
+    background: #1a1a1a; /* Footer más oscuro en modo nocturno */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+}
+
+body.dark-mode .footer-section h4 {
+    color: #7fc8e8; /* Azul claro para títulos en modo oscuro */
+}
+
+body.dark-mode .footer-section h4::after {
+    background: #7fc8e8; /* Línea decorativa azul claro */
+}
+
+body.dark-mode .social-icons a:hover {
+    background: #2980b9; /* Color hover más visible en modo oscuro */
+}
+
+body.dark-mode .footer-bottom {
+    border-top-color: rgba(255, 255, 255, 0.05); /* Borde superior más sutil */
+}
+
+
+/* ================== BOTÓN MODO OSCURO ================== */
+#toggle-dark-mode {
+    position: absolute; /* Posicionamiento absoluto */
+    top: 20px; /* Desde arriba */
+    right: 20px; /* Desde la derecha */
+    background-color: var(--primary-color); /* Color principal */
+    color: var(--text-light); /* Texto claro */
+    border: none; /* Sin borde */
+    width: 40px; /* Ancho fijo */
+    height: 40px; /* Altura fija (circular) */
+    border-radius: 50%; /* Forma circular */
+    cursor: pointer; /* Cursor de mano */
+    font-size: 1.2rem; /* Tamaño de icono */
+    display: flex; /* Para centrar contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    transition: var(--transition); /* Transición suave */
+    box-shadow: var(--shadow-md); /* Sombra media */
+    z-index: 100; /* Por encima de otros elementos */
+}
+
+#toggle-dark-mode:hover {
+    background-color: var(--primary-hover); /* Color oscuro al pasar el cursor */
+    transform: scale(1.1) rotate(30deg); /* Efecto de escalado y rotación */
+}
+
+/* ================== TRADUCTOR GOOGLE ================== */
+#google_translate_element {
+    position: absolute; /* Posicionamiento absoluto */
+    top: 20px; /* Desde arriba */
+    right: 70px; /* A la izquierda del botón de tema */
+    z-index: 100; /* Por encima de otros elementos */
+}
+
+.goog-te-gadget {
+    color: transparent !important; /* Oculta el texto original */
+    font-size: 0 !important; /* Elimina espacios del texto original */
+}
+
+.goog-te-gadget-simple {
+    background-color: transparent !important; /* Fondo transparente */
+    border: 1px solid rgba(255, 255, 255, 0.2) !important; /* Borde sutil */
+    padding: 6px 10px !important; /* Espaciado interno */
+    border-radius: 20px !important; /* Bordes muy redondeados */
+    height: auto !important; /* Altura automática */
+    display: flex !important; /* Organiza contenido */
+    align-items: center !important; /* Centra verticalmente */
+    transition: var(--transition) !important; /* Transición suave */
+    background-color: var(--primary-color) !important; /* Color principal de fondo */
+    color: white !important; /* Texto blanco */
+}
+
+.goog-te-gadget-simple:hover {
+    background-color: var(--primary-hover) !important; /* Color oscuro al pasar el cursor */
+    transform: scale(1.05); /* Ligero efecto de escalado */
+}
+
+.goog-te-gadget-simple img {
+    display: none !important; /* Oculta imagen original */
+}
+
+.goog-te-gadget-simple span {
+    display: none !important; /* Oculta texto original */
+}
+
+.goog-te-gadget-simple:after {
+    content: "🌐" !important; /* Agrega icono de globo */
+    color: var(--text-light) !important; /* Color claro */
+    font-family: Arial, sans-serif !important; /* Fuente base */
+    font-size: 0.9rem !important; /* Tamaño de icono */
+    font-weight: 500 !important; /* Grosor medio */
+}
+
+.goog-te-menu-frame {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important; /* Sombra para el menú desplegable */
+    border-radius: 12px !important; /* Bordes redondeados */
+    margin-top: 10px !important; /* Espacio superior */
+    max-width: 200px !important; /* Ancho máximo */
+    border: none !important; /* Sin borde */
+}
+
+/* Ocultar banners y logos de Google Translate */
+.goog-logo-link,
+.goog-te-gadget span,
+.goog-te-banner-frame {
+    display: none !important; /* Oculta elementos innecesarios */
+}
+
+/* ================================== MODO OSCURO ====================================== */
+/* Modo Oscuro: Estilos para el modo oscuro */
+body.dark-mode {
+    background: #121212; /* Fondo muy oscuro */
+    color: #e0e0e0; /* Texto claro */
+}
+
+/* Modo Oscuro: Estilos para el encabezado en modo oscuro */
+body.dark-mode header {
+    background: #1f1f1f; /* Fondo oscuro para encabezado */
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1); /* Sombra invertida */
+}
+
+/* Modo Oscuro: Estilos para la barra de navegación en modo oscuro */
+body.dark-mode nav {
+    background: #333; /* Fondo oscuro para navegación */
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1); /* Sombra invertida */
+}
+
+/* Modo Oscuro: Estilos para las secciones en modo oscuro */
+body.dark-mode section {
+    background: #1f1f1f; /* Fondo oscuro para secciones */
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1); /* Sombra invertida */
+}
+
+/* Modo oscuro para el traductor */
+body.dark-mode .goog-te-gadget-simple {
+    border-color: rgba(255, 255, 255, 0.1) !important; /* Borde más sutil en modo oscuro */
+}
+
+body.dark-mode .goog-te-gadget-simple:after {
+    color: var(--text-light) !important; /* Mantiene el icono en color claro */
+}
+
+/* ================== MEDIA QUERIES PARA RESPONSIVE DESIGN ================== */
+/* Tablets */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 28px; /* Título más pequeño en tablets */
+    }
+
+    nav ul {
+        flex-direction: row; /* Mantiene disposición horizontal */
+        gap: 5px; /* Espacio entre elementos */
+        padding: 0 10px; /* Espaciado lateral */
+    }
+
+    nav a {
+        font-size: 13px; /* Enlaces más pequeños */
+        padding: 8px 10px; /* Espaciado reducido */
+    }
+
+    .nav-actions {
+        margin-top: 10px; /* Espacio superior para acciones */
+    }
+
+    .download-cv-btn {
+        padding: 10px 16px; /* Espaciado reducido */
+        font-size: 13px; /* Texto más pequeño */
+        margin: 8px auto; /* Margen reducido */
+    }
+    
+    .download-cv-btn i,
+    .download-cv-btn svg {
+        font-size: 16px; /* Icono más pequeño */
+    }
+
+    .box {
+        width: 100%; /* Ancho completo */
+        max-width: 400px; /* Con límite máximo */
+    }
+    
+    #toggle-dark-mode {
+        width: 32px; /* Botón más pequeño */
+        height: 32px; /* Altura proporcional */
+        font-size: 1rem; /* Icono más pequeño */
+        top: 15px; /* Posición ajustada */
+        right: 15px; /* Posición ajustada */
+    }
+    
+    #google_translate_element {
+        top: 15px; /* Posición ajustada */
+        right: 57px; /* Posición ajustada */
+    }
+    
+    .goog-te-gadget-simple {
+        padding: 5px 8px !important; /* Botón traductor más compacto */
+    }
+    
+    /* Reglas responsive mejoradas para asides en tablets */
+    section, aside {
+        width: 90%; /* Ajusta el ancho para mejor visualización */
+    }
+    
+    aside {
+        padding: 12px 15px; /* Padding reducido */
+        margin: 15px auto; /* Margen reducido */
+        border-left-width: 3px; /* Borde más fino */
+    }
+    
+    aside h3 {
+        font-size: 16px; /* Título más pequeño */
+        margin-bottom: 8px; /* Espacio inferior reducido */
+    }
+    
+    aside p {
+        font-size: 14px; /* Texto más pequeño */
+        line-height: 1.4; /* Mantiene buen espaciado */
+    }
+    
+    /* Footer responsive para tablets */
+    .footer-container {
+        padding: 0 20px; /* Espaciado lateral */
+    }
+    
+    .footer-section {
+        flex: 0 0 48%; /* Dos columnas en tablets */
+        margin-bottom: 20px; /* Espacio inferior */
+    }
+    
+    .social-icons a {
+        width: 32px; /* Iconos más pequeños */
+        height: 32px; /* Altura proporcional */
+    }
+}
+
+/* Smartphones */
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column; /* Cambia a columna en móviles */
+        align-items: center; /* Centra horizontalmente */
+        padding: 5px 0; /* Espaciado reducido */
+    }
+
+    nav a {
+        font-size: 12px; /* Enlaces aún más pequeños */
+        padding: 6px 10px; /* Espaciado más compacto */
+        width: 100%; /* Ancho completo */
+        text-align: center; /* Texto centrado */
+    }
+
+    .nav-actions {
+        width: 100%; /* Ancho completo */
+        display: flex; /* Organiza contenido */
+        justify-content: center; /* Centra horizontalmente */
+        margin-top: 8px; /* Espacio superior */
+    }
+
+    .download-cv-btn {
+        padding: 8px 14px; /* Espaciado aún más reducido */
+        font-size: 12px; /* Texto aún más pequeño */
+        max-width: 200px; /* Ancho máximo reducido */
+        display: block; /* Ocupa todo el ancho disponible */
+        margin: 6px auto; /* Margen más pequeño */
+    }
+    
+    .download-cv-btn i,
+    .download-cv-btn svg {
+        font-size: 14px; /* Icono aún más pequeño */
+    }
+
+    header h1 {
+        font-size: 24px; /* Título aún más pequeño */
+    }
+
+    .box {
+        padding: 15px; /* Espaciado interno reducido */
+    }
+
+    .box h2 {
+        font-size: 20px; /* Tamaño del título más pequeño */
+    }
+
+    .box p {
+        font-size: 14px; /* Tamaño del texto más pequeño */
+    }
+
+    .box a {
+        padding: 8px 16px; /* Espaciado interno reducido */
+        font-size: 14px; /* Tamaño de fuente más pequeño */
+    }
+    
+/* Botón de alternar modo oscuro */
+#toggle-dark-mode {
+    width: 28px;        /* Ancho fijo compacto */
+    height: 28px;       /* Altura fija igual que el ancho para forma cuadrada */
+    font-size: 0.9rem;  /* Tamaño de texto/icono reducido */
+    top: 10px;          /* Posicionamiento absoluto desde arriba */
+    right: 10px;        /* Posicionamiento absoluto desde la derecha */
+}
+
+/* Widget de Google Translate */
+#google_translate_element {
+    right: 48px;        /* Posicionado a la izquierda del botón de modo oscuro */
+    top: 10px;          /* Alineado verticalmente con el botón de modo oscuro */
+}
+
+/* Estilo del widget de Google Translate */
+.goog-te-gadget-simple {
+    padding: 4px 7px !important;  /* Padding compacto con !important para sobrescribir estilos originales */
+}
+
+/* Texto o pseudo-elemento después del widget de Google Translate */
+.goog-te-gadget-simple:after {
+    font-size: 0.8rem !important;  /* Tamaño de texto reducido con !important */
+}
+
+/* Reglas responsive mejoradas para secciones y asides en móviles */
+section, aside {
+    width: 95%;         /* Casi ancho completo para aprovechar espacio */
+    padding: 12px;      /* Padding unificado */
+    margin: 12px auto;  /* Margen reducido y centrado horizontal */
+}
+
+/* Estilos específicos para barras laterales */
+aside {
+    padding: 10px 12px;    /* Padding aún más compacto */
+    border-left-width: 3px; /* Borde izquierdo fino (probablemente coloreado) */
+    border-radius: 8px;     /* Radio de borde más pequeño para esquinas suavizadas */
+}
+
+/* Títulos dentro de barras laterales */
+aside h3 {
+    font-size: 15px;      /* Título más pequeño */
+    margin-bottom: 6px;   /* Espacio inferior mínimo */
+}
+
+/* Párrafos dentro de barras laterales */
+aside p {
+    font-size: 13px;      /* Texto más pequeño */
+    line-height: 1.3;     /* Interlineado reducido para mayor compacidad */
+    margin-bottom: 6px;   /* Espacio inferior reducido entre párrafos */
+}
+
+/* Ajustes para los asides con clases semánticas */
+aside.important, aside.note, aside.tip {
+    padding-left: 10px;   /* Asegura que el texto no toque el borde izquierdo */
+}
+
+/* Contenedor principal del footer */
+.footer-container {
+    flex-direction: column;  /* Apila los elementos verticalmente */
+    padding: 0 15px;         /* Padding horizontal moderado, sin padding vertical */
+}
+
+/* Secciones individuales dentro del footer */
+.footer-section {
+    padding: 0;              /* Sin padding adicional */
+    margin-bottom: 25px;     /* Espacio significativo entre secciones */
+}
+
+/* Formulario dentro del footer (probablemente newsletter) */
+.footer-form {
+    flex-direction: column;  /* Apila el input y botón verticalmente */
+}
+
+/* Campo de entrada en el formulario del footer */
+.footer-form input {
+    border-radius: var(--border-radius);  /* Radio de borde desde variable CSS */
+    margin-bottom: 10px;                 /* Espacio entre input y botón */
+}
+
+/* Botón en el formulario del footer */
+.footer-form button {
+    border-radius: var(--border-radius);  /* Radio de borde desde variable CSS */
+    padding: 8px;                        /* Padding interior moderado */
+}
+
+/* Contenedor de iconos sociales */
+.social-icons {
+    justify-content: center;  /* Centra horizontalmente los iconos */
+}
+
+/* Parte inferior del footer (probablemente copyright y enlaces legales) */
+.footer-bottom {
+    padding-top: 15px;      /* Padding superior para separarlo del contenido anterior */
+    margin-top: 15px;       /* Margen superior, probablemente hay un separador/borde */
+    font-size: 12px;        /* Texto pequeño para información secundaria */
+}
+}
