@@ -200,22 +200,61 @@ nav a:hover::before {
     transition: left 0.5s; /* Transición del movimiento horizontal */
 }
 
+/* Efecto hover para el botón completo */
 .download-cv-btn:hover {
-    transform: translateY(-3px); /* Mueve el botón 3px hacia arriba en hover */
-    box-shadow: var(--shadow-heavy); /* Sombra pronunciada en hover */
+    transform: translateY(-3px); /* Efecto de levitación */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    border-color: var(--accent-color); /* Borde con color de acento */
 }
 
-.download-cv-btn:hover::before {
-    left: 100%; /* Mueve el brillo hacia la derecha en hover */
+/* Efecto hover específico para el icono */
+.download-cv-btn:hover i.fas.fa-download {
+    animation: downloadBounce 0.5s ease infinite alternate; /* Cambia a animación de rebote */
 }
 
-.download-cv-btn i {
-    font-size: 1.1rem; /* Tamaño del icono ligeramente mayor */
-    transition: var(--transition); /* Transición suave para el icono */
+/* Efecto de brillo que recorre el botón al hacer hover */
+.download-cv-btn::after {
+    content: ''; /* Pseudo-elemento vacío */
+    position: absolute; /* Posicionamiento absoluto respecto al botón */
+    top: 0; /* Alineado en la parte superior */
+    left: -100%; /* Comienza fuera del botón por la izquierda */
+    width: 100%; /* Ancho completo del botón */
+    height: 100%; /* Altura completa del botón */
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    ); /* Gradiente de brillo */
+    transition: 0.5s; /* Transición para el movimiento */
 }
 
-.download-cv-btn:hover i {
-    transform: rotate(360deg); /* Rota el icono 360 grados en hover */
+/* Movimiento del efecto de brillo al hacer hover */
+.download-cv-btn:hover::after {
+    left: 100%; /* Mueve el brillo a través del botón */
+}
+
+/* Animación de pulso (crece y se reduce suavemente) */
+@keyframes downloadPulse {
+    0% {
+        transform: scale(1); /* Tamaño normal */
+    }
+    50% {
+        transform: scale(1.1); /* Escala al 110% */
+    }
+    100% {
+        transform: scale(1); /* Vuelve al tamaño normal */
+    }
+}
+
+/* Animación de rebote (movimiento vertical) */
+@keyframes downloadBounce {
+    0% {
+        transform: translateY(0); /* Posición inicial */
+    }
+    100% {
+        transform: translateY(-5px); /* Se mueve hacia arriba */
+    }
 }
 
 /* ================== SECCIONES ================== */
